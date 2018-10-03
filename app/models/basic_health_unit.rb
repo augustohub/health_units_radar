@@ -16,7 +16,8 @@
 #  medical_equipment_score       :integer(11)
 #  medicine_score                :integer(11)
 #
-
 class BasicHealthUnit < ApplicationRecord
-
+  validates_presence_of :name, :address, :city, :phone, :latitude, :longitude,
+                        :unit_size_score, :adaptation_for_seniors_score,
+                        :medical_equipment_score, :medicine_score
 end
