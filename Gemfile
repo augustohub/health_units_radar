@@ -9,9 +9,10 @@ gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Provides location-based goodness for your Rails app. Requires the Geokit gem.
+gem 'geokit-rails', '~> 2.3', '>= 2.3.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
