@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BasicHealthUnit, type: :model do
-  subject {
+  subject do
     described_class.new(name: 'AMBULATORIO SANTA ANA',
                         address: 'LINHA BOA ESPERANCA, DOBRADA',
                         city: 'Sertão Santana',
@@ -12,7 +12,7 @@ RSpec.describe BasicHealthUnit, type: :model do
                         adaptation_for_seniors_score: 1,
                         medical_equipment_score: 2,
                         medicine_score: 2)
-  }
+  end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
