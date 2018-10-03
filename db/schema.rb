@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_10_03_191615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "basic_health_units", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "phone"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.integer "unit_size_score"
+    t.integer "adaptation_for_seniors_score"
+    t.integer "medical_equipment_score"
+    t.integer "medicine_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
