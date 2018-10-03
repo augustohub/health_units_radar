@@ -20,4 +20,7 @@ class BasicHealthUnit < ApplicationRecord
   validates_presence_of :name, :address, :city, :phone, :latitude, :longitude,
                         :size_score, :adaptation_for_seniors_score,
                         :medical_equipment_score, :medicine_score
+
+  acts_as_mappable lat_column_name: :latitude,
+                   lng_column_name: :longitude
 end
