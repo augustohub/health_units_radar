@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Info
 #
 # Table name: basic_health_units
