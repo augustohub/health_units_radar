@@ -1,16 +1,23 @@
 module Api::V1
   class BasicHealthUnitsController < ApiController
+    before_action :decompose_geocode, only: :index
 
     # GET /api/v1/find_ubs
     def index
-      @ubs = BasicHealthUnit.by_distance(origin: basic_health_units_params[:query])
+      @ubs = BasicHealthUnit.by_distance(origin: [@lat, @lon])
       render json: @ubs
     end
 
     private
 
-    def basic_health_units_params
-      params.permit(:query, :page, :per_page)
+    def decompose_geocode
+      @lat, @lon = ubs_params[:query].split(', ')
+    end
+
+    def ubs_params
+      puts params
+      params.require(:basic_health_unit)
+            .permit(:query, :page, :per_page)
     end
   end
 end
