@@ -17,10 +17,18 @@
 #  medicine_score                :integer(11)
 #
 class BasicHealthUnit < ApplicationRecord
+
+  SCORE_TRANSLATION = {
+    1 => 'Desempenho muito acima da média',
+    2 => 'Desempenho acima da média',
+    3 => 'Desempenho mediano ou  um pouco abaixo da média'
+  }.freeze
+
   validates_presence_of :name, :address, :city, :phone, :latitude, :longitude,
                         :size_score, :adaptation_for_seniors_score,
                         :medical_equipment_score, :medicine_score
 
   acts_as_mappable lat_column_name: :latitude,
                    lng_column_name: :longitude
+
 end
