@@ -3,12 +3,16 @@ module Api::V1
     before_action :decompose_geocode, only: :index
 
     # GET /api/v1/find_ubs
-    def index      
+    def index
       ubs = BasicHealthUnit.by_distance(origin: [@lat, @lon])
                            .page(ubs_params[:page])
                            .per(ubs_params[:per_page])
 
-      render json: ubs if stale?(etag: ubs)
+      render json: ubs,
+             adapter: :json,
+             meta: { pagination: { page: ubs.current_page,
+                                   per_page: ubs.limit_value,
+                                   total_entries: BasicHealthUnit.count } }
     end
 
     private
