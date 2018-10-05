@@ -4,10 +4,12 @@ module Api::V1
 
     # GET /api/v1/find_ubs
     def index
-      @ubs = BasicHealthUnit.by_distance(origin: [@lat, @lon])
-                            .page(ubs_params[:page])
-                            .per(ubs_params[:per_page])
-      render json: @ubs
+      ubs = BasicHealthUnit.by_distance(origin: [@lat, @lon])
+                           .page(ubs_params[:page])
+                           .per(ubs_params[:per_page])
+
+      render json: ubs, meta: { pagination: { per_page: ubs_params[:per_page],
+                                              page: ubs_params[:page] } }
     end
 
     private
