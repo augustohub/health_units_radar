@@ -13,8 +13,8 @@ gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.5'
 # Provides location-based goodness for your Rails app. Requires the Geokit gem.
 gem 'geokit-rails', '~> 2.3', '>= 2.3.1'
-# Kaminari is a Scope & Engine based paginator for Rails 4+
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+# ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers', '~> 0.10.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
