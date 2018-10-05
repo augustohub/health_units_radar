@@ -5,6 +5,8 @@ module Api::V1
     # GET /api/v1/find_ubs
     def index
       @ubs = BasicHealthUnit.by_distance(origin: [@lat, @lon])
+                            .page(ubs_params[:page])
+                            .per(ubs_params[:per_page])
       render json: @ubs
     end
 
@@ -16,8 +18,7 @@ module Api::V1
 
     def ubs_params
       puts params
-      params.require(:basic_health_unit)
-            .permit(:query, :page, :per_page)
+      params.permit(:query, :page, :per_page)
     end
   end
 end
