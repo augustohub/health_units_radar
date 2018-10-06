@@ -10,11 +10,14 @@ This simple API Web contains only one route:
 > GET: api/v1/find_ubs
 
 Through it you must pass the following parameters:
+
+```
 | Parameter          | Example                | Description                 |
-| ------------------ | ---------------------- | --------------------------- |
+|--------------------|------------------------|-----------------------------|
 | query              | -23.604936,-46.692999  | Lat/Log for search          |
 | page               | 2                      | Current page                |
 | per_page           | 10                     | Items per page (default: 10)|
+```
 
 
 ## Response
